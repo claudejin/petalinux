@@ -1,0 +1,2 @@
+# petalinux
+Zynq + PetaLinux settings
