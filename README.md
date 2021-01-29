@@ -190,10 +190,10 @@
 ### Build System Image
 
 * `petalinux-build` 통해 Device Tree DTB 파일, Boot Loader, U-Boot, Kernel, Root File System 이미지 생성 (Guide p.27)
-* `ls images/linux` 또는 `ls /tftpboot` 통해 생성된 파일 확인
+* `ls images/linux` 또는 `ls /tftpboot` 통해 생성된 `rootfs.tar.gz` 파일 확인
   * ![image-20210128134848587](./images/after_system_build.png)
 
-### Build Boot Image
+### Build Boot Image > 기존 파일 사용 가능
 
 * `petalinux-package --boot --u-boot --format BIN` BOOT.bin 파일 생성 (Guide p.30 하단)
 * ![image-20210128135033595](./images/after_boot_build.png)
@@ -215,10 +215,26 @@
   * Switch: off/on/off/on
   * Login with root/root
   * `/updatesys.sh /mnt/mmcblk1p1`
-* eMMC로 부팅 후 확인
+* eMMC로 부팅 후 Static IP 설정
   * Switch: on/off/on/on
+  
   * login
-  * `ifconfig eth0 192.168.1.122 up`로 Static IP 세팅
+  
+  * `sudo vi /etc/network/interfaces`
+  
+  * `iface eth0 inet dhcp`를 다음과 같이 수정
+  
+  * ```bash
+    iface eth0 inet static
+    	address 192.168.1.122
+    	netmask 255.255.255.0
+    ```
+  
+  * `reboot`
+
+* Host에서 SSH 로 접속 테스트
+  * 위에서 설정한 IP로 SSH 접속
+  * root/root로 로그인 확인
 
 
 
