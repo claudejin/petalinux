@@ -191,12 +191,12 @@
 
 * `petalinux-build` 통해 Device Tree DTB 파일, Boot Loader, U-Boot, Kernel, Root File System 이미지 생성 (Guide p.27)
 * `ls images/linux` 또는 `ls /tftpboot` 통해 생성된 파일 확인
-  * ![image-20210128134848587](C:\Users\2018409\AppData\Roaming\Typora\typora-user-images\image-20210128134848587.png)
+  * ![image-20210128134848587](./images/after_system_build.png)
 
 ### Build Boot Image
 
 * `petalinux-package --boot --u-boot --format BIN` BOOT.bin 파일 생성 (Guide p.30 하단)
-* ![image-20210128135033595](C:\Users\2018409\AppData\Roaming\Typora\typora-user-images\image-20210128135033595.png)
+* ![image-20210128135033595](./images/after_boot_build.png)
 
 ### SD Card에 복사
 
